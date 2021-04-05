@@ -1,0 +1,26 @@
+<h1><u>Results</u></h1>
+<p style="font-size: 20px">Movies searches for - <em style="color: Red"><%= search %></em></p>
+<% if(data["Response"] != "False") { %>
+<ol>
+    <% for(var i = 0 ; i < data.length; i++) { %>
+        <li style="padding: 20px">
+            <p style="font-size: 22px"><strong><%= data[i]["Title"] %> (<%= data[i]["Year"] %>)</strong></p>
+                <strong>Title: </strong><%= data[i]["Title"] %><br>
+                <strong>Year: </strong><%= data[i]["Year"] %><br>               
+            </p>
+            <br>
+            <img src='<%= data[i]["Poster"] %>' style="width: 200px">
+            <br>
+            <strong>View Trailer</strong>
+            <br>
+            <video width="320" height="240" controls>
+            <source src='<%= data[i]["Url"] %>' type="video/mp4">
+            </video>
+        </li>
+    <% }; %>
+</ol>
+<% } else { %>
+    <h2>Movie not found!</h2>
+<% } %>
+<br>
+<a href="/">Go back!</a>
